@@ -1,0 +1,24 @@
+{
+  "name": "osher-project",
+  "private": true,
+  "author": "osher",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "dotenvx run -- npm run build --workspaces --if-present",
+    "dev": "dotenvx run -- npm run dev --workspaces --if-present",
+    "dev:react": "dotenvx run -- npm run dev --workspace=react",
+    "dev:express": "dotenvx run -- npm run dev --workspace=express",
+    "start": "dotenvx run -- node apps/express/dist/index.js"
+  },
+  "devDependencies": {
+    "@dotenvx/dotenvx": "^1.51.1",
+    "tsup": "^8.5.1",
+    "tsx": "^4.20.6"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
