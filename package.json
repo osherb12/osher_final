@@ -8,13 +8,18 @@
   ],
   "scripts": {
     "build": "dotenvx run -- npm run build --workspaces --if-present",
-    "dev": "dotenvx run -- npm run dev --workspaces --if-present",
+    "dev": "dotenvx run -- concurrently \"npm run dev:express\" \"npm run dev:react\"",
     "dev:react": "dotenvx run -- npm run dev --workspace=react",
     "dev:express": "dotenvx run -- npm run dev --workspace=express",
-    "start": "dotenvx run -- node apps/express/dist/index.js"
+    "start": "dotenvx run -- node apps/express/dist/index.js",
+    "seed": "dotenvx run -- tsx --tsconfig apps/express/tsconfig.json apps/express/src/utils/seed.ts",
+    "test": "npm test --workspace=express",
+    "test:e2e": "npm run test:e2e --workspace=react"
   },
   "devDependencies": {
     "@dotenvx/dotenvx": "^1.51.1",
+    "concurrently": "^9.2.1",
+    "jiti": "^2.6.1",
     "tsup": "^8.5.1",
     "tsx": "^4.20.6"
   },

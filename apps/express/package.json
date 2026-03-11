@@ -4,19 +4,45 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch --clear-screen=false src/index.ts",
+    "dev:nodemon": "nodemon --watch src --ext ts --exec tsx src/index.ts",
     "build": "tsup",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "seed": "tsx src/utils/seed.ts",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "author": "osher",
   "license": "MIT",
   "description": "Osher's final project backend",
   "dependencies": {
-    "express": "^5.1.0"
+    "@osher/shared": "*",
+    "@typegoose/typegoose": "^12.0.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^16.4.5",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.0.0",
+    "morgan": "^1.10.1",
+    "pino": "^9.0.0",
+    "pino-pretty": "^11.0.0",
+    "reflect-metadata": "^0.2.2",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.5",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/morgan": "^1.9.10",
     "@types/node": "^24.10.1",
+    "@types/supertest": "^7.2.0",
+    "@vitest/coverage-v8": "^4.0.18",
+    "mongodb-memory-server": "^11.0.1",
+    "nodemon": "^3.1.14",
+    "supertest": "^7.2.2",
     "tsup": "^8.5.1",
-    "tsx": "^4.20.6"
+    "tsx": "^4.20.6",
+    "vitest": "^4.0.18"
   }
 }
