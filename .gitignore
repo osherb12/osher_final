@@ -51,3 +51,4 @@ apps/react/playwright-report/
 apps/react/test-results/
 apps/react/e2e/
 apps/react/playwright.config.ts
+ui_example.html
